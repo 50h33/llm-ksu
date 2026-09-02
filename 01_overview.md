@@ -338,8 +338,6 @@ The Miner’s Lamp/6m23s/google-proof, 30Hz.
 * **LLM Reset:** LLM 응답 문법을 재설정하도록 설계된 시스템 프롬프트.
 * 방문: [https://lifearchitect.ai/llm-reset/](https://lifearchitect.ai/llm-reset/)
 
-<p align="center"><img src="images/img-2026-09-02-10-57-22.png" width="40%"/></p>
-
 ---
 
 ### LLM Reset/Normalize 예시

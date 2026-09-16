@@ -260,36 +260,7 @@ $$
 
 - I eat pizza, I eat apples, You eat pizza, You like apples (4개 문장)
 
-**unigram**
-
-| 단어(Word) | 개수(Count) |
-|---|---|
-| I | 2 |
-| You | 2 |
-| eat | 3 |
-| like | 1 |
-| pizza | 2 |
-| apples | 2 |
-
-**bigram**
-
-| Bigram | 개수(Count) |
-|---|---|
-| I eat | 2 |
-| You like | 1 |
-| You eat | 1 |
-| eat pizza | 2 |
-| eat apples | 1 |
-| like apples | 1 |
-
-**trigram**
-
-| Trigram | 개수(Count) |
-|---|---|
-| I eat pizza | 1 |
-| I eat apples | 1 |
-| You eat pizza | 1 |
-| You like apples | 1 |
+<p align="center"><img src="images/img-2026-09-16-09-14-44.png" width="100%"/></p>
 
 ---
 
@@ -341,16 +312,7 @@ $$
 
 - 9,222개의 레스토랑 질의 문장 중에서.
 
-| | i | want | to | eat | chinese | food | lunch | spend |
-|---|---|---|---|---|---|---|---|---|
-| **i** | 5 | 827 | 0 | 9 | 0 | 0 | 0 | 2 |
-| **want** | 2 | 0 | 608 | 1 | 6 | 6 | 5 | 1 |
-| **to** | 2 | 0 | 4 | 686 | 2 | 0 | 6 | 211 |
-| **eat** | 0 | 0 | 2 | 0 | 16 | 2 | 42 | 0 |
-| **chinese** | 1 | 0 | 0 | 0 | 0 | 82 | 1 | 0 |
-| **food** | 15 | 0 | 15 | 0 | 1 | 4 | 0 | 0 |
-| **lunch** | 2 | 0 | 0 | 0 | 0 | 1 | 0 | 0 |
-| **spend** | 1 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+<p align="center"><img src="images/img-2026-09-16-09-17-21.png" width="100%"/></p>
 
 ---
 
@@ -358,22 +320,11 @@ $$
 
 - 단어 세기(Count words)
 
-| i | want | to | eat | chinese | food | lunch | spend |
-|---|---|---|---|---|---|---|---|
-| 2533 | 927 | 2417 | 746 | 158 | 1093 | 341 | 278 |
+<p align="center"><img src="images/img-2026-09-16-09-17-44.png" width="100%"/></p>
 
 - 결과 ($P(w_n/w_{n-1})$)
 
-| | i | want | to | eat | chinese | food | lunch | spend |
-|---|---|---|---|---|---|---|---|---|
-| **i** | 0.002 | 0.33 | 0 | 0.0036 | 0 | 0 | 0 | 0.00079 |
-| **want** | 0.0022 | 0 | 0.66 | 0.0011 | 0.0065 | 0.0065 | 0.0054 | 0.0011 |
-| **to** | 0.00083 | 0 | 0.0017 | 0.28 | 0.00083 | 0 | 0.0025 | 0.087 |
-| **eat** | 0 | 0 | 0.0027 | 0 | 0.021 | 0.0027 | 0.056 | 0 |
-| **chinese** | 0.0063 | 0 | 0 | 0 | 0 | 0.52 | 0.0063 | 0 |
-| **food** | 0.014 | 0 | 0.014 | 0 | 0.00092 | 0.0037 | 0 | 0 |
-| **lunch** | 0.0059 | 0 | 0 | 0 | 0 | 0.0029 | 0 | 0 |
-| **spend** | 0.0036 | 0 | 0.0036 | 0 | 0 | 0 | 0 | 0 |
+<p align="center"><img src="images/img-2026-09-16-09-17-59.png" width="100%"/></p>
 
 ---
 
@@ -581,9 +532,9 @@ WSJ(Wall Street Journal)에서 테스트 150만 단어
 **단어 의미의 전통적인 표현**
 
 - **사전(Dictionary)** : 계산 언어학 연구에서 그다지 유용하지 않다.
-- **WordNet** : "is-a", 동의어 집합(synonym sets) 같은 관계를 가진 단어 그래프.
 
-  문제점: 사람의 라벨링에 의존하므로 많은 것을 놓치고, 이 과정을 자동화하기 어렵다
+- **WordNet** : "is-a", 동의어 집합(synonym sets) 같은 관계를 가진 단어 그래프.
+  - **문제점**: 사람의 라벨링에 의존하므로 많은 것을 놓치고, 이 과정을 자동화하기 어렵다
 
 - **원자적 기호(Atomic symbols)** : one-hot 벡터, 매우 길다 (일상 대화 20K, 기계 번역 50K)
 
@@ -592,13 +543,13 @@ WSJ(Wall Street Journal)에서 테스트 150만 단어
   Motel: [0,0,0,0,1,0,0,0,0,0,0,0,0,0]
   ```
 
-  문제점: 유사성의 자연스러운 의미가 없다 ($hotel \cdot motel^T = 0$)
+  - **문제점**: 유사성의 자연스러운 의미가 없다 ($hotel \cdot motel^T = 0$)
 
 ---
 
 ### WordNet 예시 (WordNet Example)
 
-*(이미지)*
+<p align="center"><img src="images/img-2026-09-16-09-21-05.png" width="100%"/></p>
 
 ---
 
@@ -606,11 +557,11 @@ WSJ(Wall Street Journal)에서 테스트 150만 단어
 
 직사각형의 개수 → ∞ 일 때
 
-*(이미지: 적분 도해, 뉴턴과 라이프니츠 초상)*
+<p align="center"><img src="images/img-2026-09-16-09-21-24.png" width="100%"/></p>
 
 ---
 
-단어의 의미를 표현하는 두 가지 접근법.
+**단어의 의미를 표현하는 두 가지 접근법**
 
 1. 많은 "직사각형", 즉 숫자의 벡터를 사용하여 단어의 의미를 근사적으로 표현한다.
 2. 무엇이 단어의 의미를 표현하는가?
@@ -621,7 +572,7 @@ WSJ(Wall Street Journal)에서 테스트 150만 단어
 
 우리는 JR Firth를 믿고 신경망을 사용해 (저차원) 벡터를 학습시킬 것이다. 두 단어가 텍스트에서 매번 함께 나타나면, 그들은 조금씩 더 가까워져야 한다.
 
-이것은 주석(annotation) 없이 대규모 코퍼스를 사용할 수 있게 해준다! 따라서, 우리는 한 번에 2d+1 크기의 윈도우를 보면서 학습 데이터를 스캔할 것이다. 중심 단어(center word)가 주어지면, 왼쪽 d개 단어와 오른쪽 d개 단어를 예측하려고 시도한다.
+이것은 **주석(annotation) 없이 대규모 코퍼스**를 사용할 수 있게 해준다! 따라서, 우리는 한 번에 2d+1 크기의 윈도우를 보면서 학습 데이터를 스캔할 것이다. 중심 단어(center word)가 주어지면, 왼쪽 d개 단어와 오른쪽 d개 단어를 예측하려고 시도한다.
 
 ---
 
@@ -674,7 +625,7 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
   2. 중심 단어인 $h_i$와 내적한다
   3. softmax를 계산한다
 
-*(이미지: 입력층 V-dim, 은닉층 N-dim, 출력층 DxV dim, D = 문맥 윈도우 크기)*
+<p align="center"><img src="images/img-2026-09-16-10-30-59.png" width="30%"/></p>
 
 ---
 
@@ -682,31 +633,7 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 사용 가능한 텍스트 : Thou shalt not make a machine in the likeness of a human mind. ... (기존의 연속 텍스트에서)
 
-| thou | shalt | not | make | a | machine | in | the | ... |
-|---|---|---|---|---|---|---|---|---|
-
-| 입력 단어(input word) | 목표 단어(target word) |
-|---|---|
-| not | thou |
-| not | shalt |
-| not | make |
-| not | a |
-| make | shalt |
-| make | not |
-| make | a |
-| make | machine |
-| a | not |
-| a | make |
-| a | machine |
-| a | in |
-| machine | make |
-| machine | a |
-| machine | in |
-| machine | the |
-| in | a |
-| in | machine |
-| in | the |
-| in | likeness |
+<p align="center"><img src="images/img-2026-09-16-10-31-28.png" width="100%"/></p>
 
 ---
 
@@ -714,20 +641,7 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 입력 단어로부터, 목표 단어를 예측한다.
 
-*(이미지: not → Untrained Model, Task: Predict neighbouring word → 출력 어휘 분포)*
-
-```
-0      aardvark
-0      aarhus
-0.001  aaron
-...
-0.4    taco
-0.001  thou
-...
-0.0001 zyzzyva
-```
-
-1) 임베딩 조회(Look up embeddings)  2) 예측 계산(Calculate prediction)  3) 출력 어휘로 투영(Project to output vocabulary)
+<p align="center"><img src="images/img-2026-09-16-10-31-53.png" width="100%"/></p>
 
 ---
 
@@ -735,18 +649,7 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 손실(오차)을 계산한 다음 모델 파라미터를 업데이트한다.
 
-*(이미지: 실제 목표(Actual Target) - 모델 예측(Model Prediction) = 오차(Error), 모델 파라미터 업데이트(Update Model Parameters))*
-
-| 실제 목표 | | 모델 예측 | | 오차 |
-|---|---|---|---|---|
-| 0 | | 0 | aardvark | 0 |
-| 0 | | 0 | aarhus | 0 |
-| 0 | | 0.001 | aaron | -0.001 |
-| ... | | ... | | ... |
-| 0 | | 0.4 | taco | -0.4 |
-| 1 | | 0.001 | thou | 0.999 |
-| ... | | ... | | ... |
-| 0 | | 0.0001 | zyzzyva | -0.0001 |
+<p align="center"><img src="images/img-2026-09-16-10-32-08.png" width="100%"/></p>
 
 ---
 
@@ -754,19 +657,17 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 문제는 학습 속도다!!
 
-1) 출력 어휘로 투영(Project to output vocabulary) ← 계산적으로 매우 집약적이다!!
+<p align="center"><img src="images/img-2026-09-16-10-32-34.png" width="100%"/></p>
+
+계산적으로 매우 집약적이다!!
 
 ---
 
 **skip-gram 모델 - 네거티브 샘플링 (Negative sampling)**
 
-**과제를 다음에서 변경:**
+<p align="center"><img src="images/img-2026-09-16-10-32-59.png" width="100%"/></p>
 
-not → Untrained Model (Task: Predict neighbouring word) → thou
-
-**다음으로:**
-
-not, thou → Untrained Model (Task: Are the two words neighbours?) → 0.90
+<p align="center"><img src="images/img-2026-09-16-10-33-18.png" width="100%"/></p>
 
 ---
 
@@ -774,29 +675,7 @@ not, thou → Untrained Model (Task: Are the two words neighbours?) → 0.90
 
 데이터셋을 수정해야 한다.
 
-| 입력 단어(input word) | 목표 단어(target word) |
-|---|---|
-| not | thou |
-| not | shalt |
-| not | make |
-| not | a |
-| make | shalt |
-| make | not |
-| make | a |
-| make | machine |
-
-↓
-
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) |
-|---|---|---|
-| not | thou | 1 |
-| not | shalt | 1 |
-| not | make | 1 |
-| not | a | 1 |
-| make | shalt | 1 |
-| make | not | 1 |
-| make | a | 1 |
-| make | machine | 1 |
+<p align="center"><img src="images/img-2026-09-16-10-33-35.png" width="100%"/></p>
 
 ---
 
@@ -804,16 +683,7 @@ not, thou → Untrained Model (Task: Are the two words neighbours?) → 0.90
 
 이 데이터셋으로는, 항상 1을 반환하는 얄미운(smartass) 모델이 존재한다.
 
-```
-Smartass Model
-
-Task: Are the two words neighbours?
-
-def model(in, out):
-  return 1.0
-```
-
-not, thou → Smartass Model
+<p align="center"><img src="images/img-2026-09-16-10-34-00.png" width="100%"/></p>
 
 ---
 
@@ -823,25 +693,7 @@ not, thou → Smartass Model
 
 어휘에서 무작위로 선택한다 (무작위 샘플링, random sampling)
 
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) |
-|---|---|---|
-| not | thou | 1 |
-| not | aaron | 0 |
-| not | taco | 0 |
-| not | shalt | 1 |
-| | | |
-| not | make | 1 |
-
-| 단어(Word) | 개수(Count) | 확률(Probability) |
-|---|---|---|
-| aardvark | | |
-| aarhus | | |
-| aaron | | |
-| taco | | |
-| thou | | |
-| zyzzyva | | |
-
-→ 네거티브 샘플(Negative samples)
+<p align="center"><img src="images/img-2026-09-16-10-34-23.png" width="100%"/></p>
 
 ---
 
@@ -851,7 +703,7 @@ not, thou → Smartass Model
 2. 임베딩의 크기(예: embedding_size, 300)를 결정한다.
 3. 무작위로 초기화된 두 개의 행렬, 임베딩(Embedding) 행렬과 문맥(Context) 행렬을 준비한다.
 
-*(이미지: Embedding 행렬과 Context 행렬, 각각 vocab_size × embedding_size)*
+<p align="center"><img src="images/img-2026-09-16-10-34-37.png" width="100%"/></p>
 
 ---
 
@@ -862,17 +714,7 @@ not, thou → Smartass Model
    - 입력 단어(The input word) : not
    - 출력/문맥 단어(The output/context words) : thou (실제 이웃), aaron, taco (네거티브 예시)
 
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) |
-|---|---|---|
-| not | thou | 1 |
-| not | aaron | 0 |
-| not | taco | 0 |
-| not | shalt | 1 |
-| not | mango | 0 |
-| not | finglonger | 0 |
-| not | make | 1 |
-| not | plumbus | 0 |
-| ... | ... | ... |
+<p align="center"><img src="images/img-2026-09-16-10-34-55.png" width="100%"/></p>
 
 ---
 
@@ -882,7 +724,7 @@ not, thou → Smartass Model
    - 입력 단어에 대해 - 임베딩 행렬(the embedding matrix)
    - 문맥 단어에 대해 - 문맥 행렬(the context matrix)
 
-*(이미지: Embedding 행렬에서 not, Context 행렬에서 aaron/taco/thou 조회)*
+<p align="center"><img src="images/img-2026-09-16-10-35-09.png" width="100%"/></p>
 
 ---
 
@@ -892,11 +734,7 @@ not, thou → Smartass Model
 2. 시그모이드(sigmoid) 함수를 사용하여 점수를 확률로 변환한다.
 3. 오차를 계산한다 (= target - sigmoid_scores)
 
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) | input • output | sigmoid() | 오차(Error) |
-|---|---|---|---|---|---|
-| not | thou | 1 | 0.2 | 0.55 | 0.45 |
-| not | aaron | 0 | -1.11 | 0.25 | -0.25 |
-| not | taco | 0 | 0.74 | 0.68 | -0.68 |
+<p align="center"><img src="images/img-2026-09-16-10-35-22.png" width="100%"/></p>
 
 ---
 
@@ -906,13 +744,7 @@ not, thou → Smartass Model
 2. 다음 긍정 샘플과 그에 연관된 네거티브 샘플로 진행한다.
 3. 같은 과정을 다시 수행한다.
 
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) | input • output | sigmoid() | 오차(Error) |
-|---|---|---|---|---|---|
-| not | thou | 1 | 0.2 | 0.55 | 0.45 |
-| not | aaron | 0 | -1.11 | 0.25 | -0.25 |
-| not | taco | 0 | 0.74 | 0.68 | -0.68 |
-
-→ 모델 파라미터 업데이트(Update Model Parameters)
+<p align="center"><img src="images/img-2026-09-16-10-35-41.png" width="100%"/></p>
 
 ---
 
@@ -923,46 +755,25 @@ not, thou → Smartass Model
   - 큰 크기 (15 ~ 50) : 높은 유사도는 단어들의 **관련성(relatedness)** 을 나타낸다.
 - 네거티브 샘플의 수 : 5~20이 좋은 숫자다.
 
-**네거티브 샘플: 2**
-
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) |
-|---|---|---|
-| make | shalt | 1 |
-| make | aaron | 0 |
-| make | taco | 0 |
-
-**네거티브 샘플: 5**
-
-| 입력 단어(input word) | 출력 단어(output word) | 목표(target) |
-|---|---|---|
-| make | shalt | 1 |
-| make | aaron | 0 |
-| make | taco | 0 |
-| make | finglonger | 0 |
-| make | plumbus | 0 |
-| make | mango | 0 |
+<p align="center"><img src="images/img-2026-09-16-10-35-54.png" width="100%"/></p>
 
 ---
 
 **결과 (The Results)**
 
-*(이미지: 세 개의 도해)*
-
-- 남성-여성(Male-Female) : king → queen, man → woman
-- 동사 시제(Verb tense) : walking → walked, swimming → swam
-- 국가-수도(Country-Capital) : Spain-Madrid, Italy-Rome, Germany-Berlin, Turkey-Ankara, Russia-Moscow, Canada-Ottawa, Japan-Tokyo, Vietnam-Hanoi, China-Beijing
+<p align="center"><img src="images/img-2026-09-16-10-36-08.png" width="100%"/></p>
 
 ---
 
 **결과 (The Results)**
 
-*(이미지: 2차원 산점도 - lg, oven, microwave, refrigerator, ge, bulb, fan, led, light, charger, battery, kitchen, table, vanity, sink, bathroom, toilet, saw, dewalt, bathtub, faucet, shower, kit, tool, bosch, drill, valve, deck, finish, color, paint, garden, hose, sprinkler, concrete, grass)*
+<p align="center"><img src="images/img-2026-09-16-10-36-21.png" width="100%"/></p>
 
 ---
 
 **결과 - 모든 것이 완벽하지는 않다 (The Results - Not everything is perfect)**
 
-*(이미지: 요리 관련 단어들의 2차원 산점도)*
+<p align="center"><img src="images/img-2026-09-16-10-36-40.png" width="100%"/></p>
 
 ---
 

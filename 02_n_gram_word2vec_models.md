@@ -625,7 +625,7 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
   2. 중심 단어인 $h_i$와 내적한다
   3. softmax를 계산한다
 
-<p align="center"><img src="images/img-2026-09-16-10-30-59.png" width="30%"/></p>
+<p align="center"><img src="images/img-2026-09-16-10-30-59.png" width="50%"/></p>
 
 ---
 
@@ -657,21 +657,17 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 문제는 학습 속도다!!
 
-<p align="center"><img src="images/img-2026-09-16-10-32-34.png" width="100%"/></p>
+<p align="center"><img src="images/img-2026-09-16-10-32-34.png" width="80%"/></p>
 
 계산적으로 매우 집약적이다!!
 
 ---
 
-**skip-gram 모델 - 네거티브 샘플링 (Negative sampling)**
+<p align="center"><img src="images/img-2026-09-16-10-32-59.png" width="80%"/></p>
 
-<p align="center"><img src="images/img-2026-09-16-10-32-59.png" width="100%"/></p>
-
-<p align="center"><img src="images/img-2026-09-16-10-33-18.png" width="100%"/></p>
+<p align="center"><img src="images/img-2026-09-16-10-33-18.png" width="80%"/></p>
 
 ---
-
-**skip-gram 모델 - 네거티브 샘플링 (Negative sampling)**
 
 데이터셋을 수정해야 한다.
 
@@ -679,15 +675,13 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 ---
 
-**skip-gram 모델 - 네거티브 샘플링 (Negative sampling)**
+이 데이터셋으로는, 항상 1을 반환하는 얄미운(smart ass) 모델이 존재한다.
 
-이 데이터셋으로는, 항상 1을 반환하는 얄미운(smartass) 모델이 존재한다.
+<p align="center"><img src="images/img-2026-09-16-10-34-00.png" width="50%"/></p>
 
-<p align="center"><img src="images/img-2026-09-16-10-34-00.png" width="100%"/></p>
+> 모두 1을 반환하면 모델은 아무런 학습도 하지 않는다.
 
 ---
-
-**skip-gram 모델 - 네거티브 샘플링 (Negative sampling)**
 
 이를 해결하기 위해, 데이터셋에 **네거티브 샘플(negative samples)** 을 도입해야 한다.
 
@@ -714,11 +708,9 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
    - 입력 단어(The input word) : not
    - 출력/문맥 단어(The output/context words) : thou (실제 이웃), aaron, taco (네거티브 예시)
 
-<p align="center"><img src="images/img-2026-09-16-10-34-55.png" width="100%"/></p>
+<p align="center"><img src="images/img-2026-09-16-10-34-55.png" width="50%"/></p>
 
 ---
-
-**학습 과정 (The training process) - 학습 (training)**
 
 1. 임베딩을 조회한다(Look up their embeddings)
    - 입력 단어에 대해 - 임베딩 행렬(the embedding matrix)
@@ -728,8 +720,6 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 
 ---
 
-**학습 과정 (The training process) - 학습 (training)**
-
 1. 입력 임베딩과 각 문맥 임베딩의 내적을 취한다.
 2. 시그모이드(sigmoid) 함수를 사용하여 점수를 확률로 변환한다.
 3. 오차를 계산한다 (= target - sigmoid_scores)
@@ -737,8 +727,6 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 <p align="center"><img src="images/img-2026-09-16-10-35-22.png" width="100%"/></p>
 
 ---
-
-**학습 과정 (The training process) - 학습 (training)**
 
 1. 모델 파라미터를 업데이트한다.
 2. 다음 긍정 샘플과 그에 연관된 네거티브 샘플로 진행한다.
@@ -764,8 +752,6 @@ $$softmax(v_o \cdot v_c) = \frac{e^{(v_o \cdot v_c)}}{\sum_{k=1..V} e^{(v_k \cdo
 <p align="center"><img src="images/img-2026-09-16-10-36-08.png" width="100%"/></p>
 
 ---
-
-**결과 (The Results)**
 
 <p align="center"><img src="images/img-2026-09-16-10-36-21.png" width="100%"/></p>
 

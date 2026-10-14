@@ -6,7 +6,7 @@
 
 ### 바닐라 신경망
 
-<p align="center"><img src="images/img-2026-10-07-09-22-13.png" width="10%"/></p>
+<p align="center"><img src="images/img-2026-10-07-09-22-13.png" width="20%"/></p>
 
 ### 순환 신경망(Recurrent Neural Networks): 시퀀스 처리
 
@@ -415,18 +415,17 @@ Pascanu et al., *순환 신경망 학습의 어려움에 대하여*, ICML 2013
 
 <p align="center"><img src="images/img-2026-10-07-10-35-39.png" width="100%"/></p>
 
-`h_t`에서 `h_{t-1}`로 역전파할 때 `W`를 곱함  
-(실제로는 $W_{hh}^{T}$)
+$h_t$에서 $h_{t-1}$로 역전파할 때 $W$를 곱함 (실제로는 $W_{hh}^{T}$)
 
 <p align="center"><img src="images/img-2026-10-07-10-36-00.png" width="100%"/></p>
 
-`h_0`의 그래디언트를 계산할 때 `W`의 많은 인수와 반복된 `tanh`가 포함됨
+$h_0$의 그래디언트를 계산할 때 $W$의 많은 인수와 반복된 `tanh`가 포함됨
 
-가장 큰 특이값 > 1: **그래디언트 폭발**
+가장 큰 특이값(Gratest Singular Value) > 1: **그래디언트 폭발**
 
-가장 큰 특이값 < 1: **그래디언트 소실**
+가장 큰 특이값(Greatest Singular Value) < 1: **그래디언트 소실**
 
-그래디언트 클리핑(Gradient Clipping): 그래디언트의 노름이 너무 크면 그래디언트를 스케일링
+그래디언트 클리핑(Gradient Clipping): 그래디언트의 norm이 너무 크면 그래디언트를 스케일링
 
 ```text
 grad_norm = np.sum(grad * grad)
@@ -440,13 +439,15 @@ if grad_norm > threshold:
 
 바닐라 RNN / LSTM
 
-Hochreiter and Schmidhuber, *장단기 메모리*, Neural Computation 1997
+<p align="center"><img src="images/img-2026-10-14-11-01-06.png" width="100%"/></p>
 
-[이미지]
+Hochreiter and Schmidhuber, *장단기 메모리*, Neural Computation 1997
 
 ## 장단기 메모리 (LSTM)
 
 [Hochreiter et al., 1997]
+
+<p align="center"><img src="images/img-2026-10-14-11-02-54.png" width="100%"/></p>
 
 아래에서 오는 벡터 (`x`)
 
@@ -457,28 +458,21 @@ Hochreiter and Schmidhuber, *장단기 메모리*, Neural Computation 1997
 - `g`: Gate gate(?), 셀에 얼마나 쓸지
 - `o`: Output gate, 셀을 얼마나 드러낼지
 
-- sigmoid
-- sigmoid
-- sigmoid
-- tanh
+<p align="center"><img src="images/img-2026-10-14-11-03-44.png" width="100%"/></p>
 
-[이미지]
-
-[이미지]
-
-[이미지]
+<p align="center"><img src="images/img-2026-10-14-11-04-00.png" width="100%"/></p>
 
 ## 장단기 메모리 (LSTM): 그래디언트 흐름
 
 [Hochreiter et al., 1997]
 
-`c_t`에서 `c_{t-1}`로 역전파할 때는 `f`와의 원소별 곱만 수행하며, `W`와의 행렬 곱은 없음
+$c_t$에서 $c_{t-1}$로 역전파할 때는 $f$와의 원소별 곱만 수행하며, $W$와의 행렬 곱은 없음
 
-[이미지]
+<p align="center"><img src="images/img-2026-10-14-11-05-45.png" width="100%"/></p>
 
 중단되지 않는 그래디언트 흐름!
 
-[이미지]
+<p align="center"><img src="images/img-2026-10-14-11-05-59.png" width="100%"/></p>
 
 # 어텐션
 
@@ -496,9 +490,7 @@ Hochreiter and Schmidhuber, *장단기 메모리*, Neural Computation 1997
 - 인코더 hidden states: key
 - 가중합: value
 
-## 어텐션
-
-### Seq2Seq RNN 모델
+## Seq2Seq RNN 모델
 
 $$
 p(y_t \mid y_1, y_2, \ldots, y_{t-1}, c)
@@ -510,7 +502,7 @@ $$
 - $s_t$: hidden state
 - $y_1, y_2, \ldots, y_{t-1}$: 이전에 예측한 모든 단어
 
-### 어텐션을 사용하는 RNN 모델 - 긴 문장용
+## 어텐션을 사용하는 RNN 모델 - 긴 문장용
 
 $$
 p(y_i \mid y_1, y_2, \ldots, y_{i-1}, x)
@@ -532,49 +524,26 @@ il a m’ entarté
 he hit me with a pie <END>
 ```
 
-- 소스 문장 인코딩
-- 소스 문장 (`x`)
-  - Word2Vec으로 표현됨
-- 타깃 문장 (`y`)
-- Encoder RNN
-- Decoder RNN
+<p align="center"><img src="images/img-2026-10-14-11-12-18.png" width="100%"/></p>
 
-[이미지]
+이 부분은 소스 문장에 대한 모든 정보를 담아야 함. **병목!!!**
 
-이 부분은 소스 문장에 대한 모든 정보를 담아야 함.
+<p align="center"><img src="images/img-2026-10-14-11-13-35.png" width="100%"/></p>
 
-**병목!!!**
-
-- 소스 문장 (`x`)
-- 타깃 문장 (`y`)
-- Encoder RNN
-- Decoder RNN
-
-[이미지]
-
-## 어텐션을 사용하는 RNN 모델
+### 어텐션을 사용하는 RNN 모델
 
 $$
 p(y_i \mid y_1, y_2, \ldots, y_{i-1}, x)
 = g(y_{i-1}, s_i, c_i)
 $$
 
-$$
-c_i = \sum_{j=1}^{T_x} \alpha_{ij} h_j
-$$
+$c_i = \sum_{j=1}^{T_x} \alpha_{ij} h_j$
+- $h_1, h_2, \ldots, h_{T_x}$의 가중합
 
-$c_i$: $h_1, h_2, \ldots, h_{T_x}$의 가중합
+$\alpha_{ij} = \frac{\exp(e_{ij})}{\sum_{k=1}^{T_x}\exp(e_{ik})}$
+- 타깃 단어 $y_i$가 소스 단어 $x_i$와 정렬되어 있을, 즉 그 단어에서 번역되었을 확률.
 
-$$
-\alpha_{ij}
-= \frac{\exp(e_{ij})}{\sum_{k=1}^{T_x}\exp(e_{ik})}
-$$
-
-타깃 단어 $y_i$가 소스 단어 $x_i$와 정렬되어 있을, 즉 그 단어에서 번역되었을 확률.
-
-$$
-e_{ij} = a(s_{i-1}, h_j)
-$$
+$e_{ij} = a(s_{i-1}, h_j)$
 
 - $e_{ij}$: 점수(score)
 - $e_{ij}$: 정렬 모델(alignment model) - 위치 `j` 주변의 입력과 위치 `i`의 출력이 얼마나 잘 일치하는지
